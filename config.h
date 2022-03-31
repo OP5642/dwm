@@ -107,9 +107,16 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-    { MODKEY,                       XK_n,      togglealttag,   {0} },
+	{ MODKEY,                       XK_n,      togglealttag,   {0} },
 	{ MODKEY|ShiftMask,		XK_KP_Add, changeopacity,	{.f = +0.1}},
 	{ MODKEY|ShiftMask,		XK_KP_Subtract, changeopacity,  {.f = -0.1}},
+	{ MODKEY,                       XK_Right,  viewnext,       {0} },
+	{ MODKEY,                       XK_Left,   viewprev,       {0} },
+	{ MODKEY|ShiftMask,             XK_Right,  tagtonext,      {0} },
+	{ MODKEY|ShiftMask,             XK_Left,   tagtoprev,      {0} },
+	{ MODKEY|ShiftMask,             XK_minus, 		setborderpx,    {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_p, 		setborderpx,    {.i = +1 } }, // these commands are a little broken
+	{ MODKEY|ShiftMask,             XK_r, 	setborderpx,    {.i = 0 } }, //these commands are a little broken
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)

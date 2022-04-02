@@ -2,10 +2,11 @@
 
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
+static const unsigned int gappx     = 10; 	/* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-    static const double defaultopacity = 0.75;
+static const double defaultopacity = 0.75;
 static const char *fonts[]          = { "SauceCodePro Nerd Font:style=Medium:size=17" };
 static const char dmenufont[]       = "SauceCodePro Nerd Font:style=Medium:size=17";
 /* Ovo su boje od ranijeg setupa

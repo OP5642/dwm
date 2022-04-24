@@ -6,7 +6,7 @@ static const unsigned int gappx     = 10; 	/* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const double defaultopacity = 0.75;
+static const double defaultopacity = 1;
 static const char *fonts[]          = { "SauceCodePro Nerd Font:style=Medium:size=17" };
 static const char dmenufont[]       = "SauceCodePro Nerd Font:style=Medium:size=17";
 /* Ovo su boje od ranijeg setupa
@@ -15,11 +15,18 @@ static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "black";
 static const char col_cyan[]        = "cyan";//#7ebab5,cyan */
+//gruvbox colors
 static const char col_gray1[]       = "#1b1b1d"; /*Background color 0c0d0c 181a1c*/
 static const char col_gray2[]       = "#a89984"; /*282828 Border for inactive windows*/
 static const char col_gray3[]       = "#a89984"; /*Leter color*/
 static const char col_gray4[]       = "#1b1d1d"; /*Letter colors for the bar letters and selected letters*/
-static const char col_cyan[]        = "#8ec07c"; /*Color for the bar and the cool accents*/
+static const char col_cyan[]        = "#8ec07c"; /*Color for the bar and the cool accents*/ 
+//Dracula theme
+//static const char col_gray1[]       = "#282a36";
+//static const char col_gray2[]       = "#ffb86c";
+//static const char col_gray3[]       = "#ff79c6";
+//static const char col_gray4[]       = "#ffb86c";
+//static const char col_cyan[]        = "#282a36";
 static const unsigned int baralpha = 0xd0;
 static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]      = {

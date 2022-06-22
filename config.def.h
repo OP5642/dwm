@@ -1,33 +1,13 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static unsigned int borderpx  = 2;        /* border pixel of windows */
-static unsigned int gappx     = 10; 	/* gaps between windows */
-static unsigned int snap      = 32;       /* snap pixel */
+static unsigned int borderpx  		= 2;        /* border pixel of windows */
+static unsigned int gappx     		= 10; 	/* gaps between windows */
+static unsigned int snap      		= 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-//clientopacity static const double defaultopacity = 1;
 static const char *fonts[]          = { "SauceCodePro Nerd Font:style=Medium:size=17"  };
 static const char dmenufont[]       = "SauceCodePro Nerd Font:style=Medium:size=17";
-/* Ovo su boje od ranijeg setupa
- * static const char col_gray1[]       = "#222222";
-static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "black";
-static const char col_cyan[]        = "cyan";//#7ebab5,cyan */
-//gruvbox colors
-//static const char col_gray1[]       = "#1b1b1d"; /*Background color 0c0d0c 181a1c*/
-//static const char col_gray2[]       = "#a89984"; /*282828 Border for inactive windows*/
-//static const char col_gray3[]       = "#a89984"; /*Leter color*/
-//static const char col_gray4[]       = "#1b1d1d"; /*Letter colors for the bar letters and selected letters*/
-//static const char col_cyan[]        = "#8ec07c"; /*Color for the bar and the cool accents*/ 
-//static const char col_urgborder[] 	= "ff00000";
-//Dracula theme
-//static const char col_gray1[]       = "#282a36";
-//static const char col_gray2[]       = "#ffb86c";
-//static const char col_gray3[]       = "#ff79c6";
-//static const char col_gray4[]       = "#ffb86c";
-//static const char col_cyan[]        = "#282a36";
 static const unsigned int baralpha = 0xd0;
 static const unsigned int borderalpha = OPAQUE;
 static char normbgcolor[]           = "#222222";
@@ -36,23 +16,13 @@ static char normfgcolor[]           = "#bbbbbb";
 static char selfgcolor[]            = "#eeeeee";
 static char selbordercolor[]        = "#005577";
 static char selbgcolor[]            = "#005577";
+static char col_urgborder[] 		= "#ff0000";
 static char *colors[][3] = {
        /*               fg           bg           border   */
        [SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
        [SchemeSel]  = { selfgcolor,  selbgcolor,  selbordercolor  },
+	   [SchemeUrg]  = { selfgcolor,  selbgcolor,  col_urgborder   },
  };
-//#include "/home/ognjen/.cache/wal/colors-wal-dwm.h"
-//static char *colors[][3] = {
-      /*               fg           bg           border   */
-      //[SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
-      //[SchemeSel]  = { selfgcolor,  selbgcolor,  selbordercolor  },
-//};
-//static const char *colors[][3]      = {
-	///*               fg         bg         border   */
-	//[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	//[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
-	//[SchemeUrg]  = { col_gray4, col_cyan,  col_urgbroder  },
-//};
 
 static const unsigned int alphas[][3]      = {
 	/*               fg      bg        border     */
@@ -66,18 +36,10 @@ static const char *tagsalt[] = { "1", "2", "3", "4", "5" , "6"};
 static const int momentaryalttags = 0; /* 1 means alttags will show only when key is held down*/
 
 static const Rule rules[] = {
-	/* xprop(1):
-	 *	WM_CLASS(STRING) = instance, class
-	 *	WM_NAME(STRING) = title
-	 */
 	/* class      instance    title       tags mask     isfloating   monitor */ 
 	{ "Gimp",     NULL,       NULL,       0,            1,         	-1 },
-	//clientopacity { "Firefox",  NULL,       NULL,       1 << 8,       0,           1.0,		-1 },
-	//clientopacity { "St",	      NULL,       NULL,       0,            0,           defaultopacity, -1},
 	{ "Firefox",  NULL,       NULL,       1 << 8,       0,          -1},
 	{ "St",	      NULL,       NULL,       0,            0,          -1},
-
-
 };
 
 /* layout(s) */
@@ -106,8 +68,6 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-//static const char *dmenucmd[] = { "dmenu_run","-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, "-i", NULL};
-//static const char *dmenucmd[] = { "dmenu_run","-m", dmenumon, NULL};
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
 static const char *termcmd[]  = { "urxvt", NULL };
 
@@ -142,19 +102,17 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
 	{ MODKEY,                       XK_n,      togglealttag,   {0} },
-//clientopacity	{ MODKEY|ShiftMask,		XK_KP_Add, changeopacity,	{.f = +0.1}},
-//clientopacity{ MODKEY|ShiftMask,		XK_KP_Subtract, changeopacity,  {.f = -0.1}},
 	{ MODKEY,                       XK_Right,  viewnext,       {0} },
 	{ MODKEY,                       XK_Left,   viewprev,       {0} },
 	{ MODKEY|ShiftMask,             XK_Right,  tagtonext,      {0} },
 	{ MODKEY|ShiftMask,             XK_Left,   tagtoprev,      {0} },
-	{ MODKEY|ShiftMask,             XK_minus, 		setborderpx,    {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_p, 		setborderpx,    {.i = +1 } }, // these commands are a little broken
-	{ MODKEY|ShiftMask,             XK_r, 	setborderpx,    {.i = 0 } }, //these commands are a little broken
+	{ MODKEY|ShiftMask,             XK_minus,  setborderpx,    {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_p, 	   setborderpx,    {.i = +1 } }, // this is a little broken
+	{ MODKEY|ShiftMask,             XK_r, 	   setborderpx,    {.i = 0 } },  // this is a little broken
 	{ MODKEY,                       XK_F5,     xrdb,           {.v = NULL } },
-	{ MODKEY,						XK_F2,	spawn,		SHCMD("pamixer --allow-boost -d 5; kill -44 $(pidof dwmblocks)") },
-	{ MODKEY,						XK_F3,	spawn,		SHCMD("pamixer --allow-boost -i 5; kill -44 $(pidof dwmblocks)") },
-	{ MODKEY,						XK_F1,	spawn,		SHCMD("pactl set-sink-mute @DEFAULT_SINK@ toggle; kill -44 $(pidof dwmblocks)") },
+	{ MODKEY,						XK_F2,	   spawn,		   SHCMD("pamixer --allow-boost -d 5; kill -44 $(pidof dwmblocks)") },
+	{ MODKEY,						XK_F3,	   spawn,		   SHCMD("pamixer --allow-boost -i 5; kill -44 $(pidof dwmblocks)") },
+	{ MODKEY,						XK_F1,	   spawn,		   SHCMD("pactl set-sink-mute @DEFAULT_SINK@ toggle; kill -44 $(pidof dwmblocks)") },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)

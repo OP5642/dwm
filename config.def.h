@@ -113,8 +113,10 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_r, 	   setborderpx,    {.i = 0 } },  // this is a little broken
 	{ MODKEY,                       XK_F5,     xrdb,           {.v = NULL } },
 
-	{ 0,							XF86XK_AudioLowerVolume,   spawn,		   SHCMD("pamixer --allow-boost -d 5; kill -44 $(pidof dwmblocks)") },
-	{ 0,							XF86XK_AudioRaiseVolume,   spawn,		   SHCMD("pamixer --allow-boost -i 5; kill -44 $(pidof dwmblocks)") },
+	{ 0,							XF86XK_AudioLowerVolume,   spawn,		   SHCMD("pamixer -d 5; kill -44 $(pidof dwmblocks)") },
+	{ ShiftMask,					XF86XK_AudioLowerVolume,   spawn,		   SHCMD("pamixer --allow-boost -d 5; kill -44 $(pidof dwmblocks)") },
+	{ 0,							XF86XK_AudioRaiseVolume,   spawn,		   SHCMD("pamixer -i 5; kill -44 $(pidof dwmblocks)") },
+	{ ShiftMask,					XF86XK_AudioRaiseVolume,   spawn,		   SHCMD("pamixer --allow-boost -i 5; kill -44 $(pidof dwmblocks)") },
 	{ 0,							XF86XK_AudioMute,	   	   spawn,		   SHCMD("pactl set-sink-mute @DEFAULT_SINK@ toggle; kill -44 $(pidof dwmblocks)") },
 
 	{ MODKEY,						XK_w,	   spawn,		   {.v = (const char*[]){ BROWSER, NULL } } },

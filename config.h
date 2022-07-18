@@ -118,6 +118,8 @@ static Key keys[] = {
 	{ 0,							XF86XK_AudioRaiseVolume,   spawn,		   SHCMD("pamixer -i 5; kill -44 $(pidof dwmblocks)") },
 	{ ShiftMask,					XF86XK_AudioRaiseVolume,   spawn,		   SHCMD("pamixer --allow-boost -i 5; kill -44 $(pidof dwmblocks)") },
 	{ 0,							XF86XK_AudioMute,	   	   spawn,		   SHCMD("pactl set-sink-mute @DEFAULT_SINK@ toggle; kill -44 $(pidof dwmblocks)") },
+	{ 0, 							XK_Print,                  spawn, 		   SHCMD("/usr/bin/maim -u | xclip -selection clipboard -t image/png; xclip -out -selection clipboard > ~/Pictures/Screenshots/$(date '+%F-%H-%M-%S').png")},
+	{ ShiftMask, 					XK_Print,          		   spawn, 		   SHCMD("/usr/bin/maim -su | xclip -selection clipboard -t image/png; xclip -out -selection clipboard > ~/Pictures/Screenshots/$(date '+%F-%H-%M-%S').png")},
 
 	{ MODKEY,						XK_w,	   spawn,		   {.v = (const char*[]){ BROWSER, NULL } } },
 	TAGKEYS(                        XK_1,                      0)

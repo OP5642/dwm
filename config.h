@@ -33,8 +33,8 @@ static const unsigned int alphas[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "\uf120", "\uf738", "\ue28a", "\uf99f", "\uf74a", "\ufbe2" };
-static const char *tagsalt[] = { "1", "2", "3", "4", "5" , "6"};
+static const char *tags[] = { "\uf120", "\uf738", "\ue28a", "\uf99f", "\uf74a", "\uf001","\ufbe2" };
+static const char *tagsalt[] = { "1", "2", "3", "4", "5" , "6", "7"};
 static const int momentaryalttags = 0; /* 1 means alttags will show only when key is held down*/
 
 static const Rule rules[] = {
@@ -113,6 +113,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_r, 	   setborderpx,    {.i = 0 } },  // this is a little broken
 	{ MODKEY,                       XK_F5,     xrdb,           {.v = NULL } },
 
+	// These are funcitonality laptop bindings
 	{ 0,							XF86XK_AudioLowerVolume,   spawn,		   SHCMD("pamixer -d 5; kill -44 $(pidof dwmblocks)") },
 	{ ShiftMask,					XF86XK_AudioLowerVolume,   spawn,		   SHCMD("pamixer --allow-boost -d 5; kill -44 $(pidof dwmblocks)") },
 	{ 0,							XF86XK_AudioRaiseVolume,   spawn,		   SHCMD("pamixer -i 5; kill -44 $(pidof dwmblocks)") },
@@ -120,7 +121,9 @@ static Key keys[] = {
 	{ 0,							XF86XK_AudioMute,	   	   spawn,		   SHCMD("pactl set-sink-mute @DEFAULT_SINK@ toggle; kill -44 $(pidof dwmblocks)") },
 	{ 0, 							XK_Print,                  spawn, 		   SHCMD("/usr/bin/maim -u | xclip -selection clipboard -t image/png; xclip -out -selection clipboard > ~/Pictures/Screenshots/$(date '+%F-%H-%M-%S').png")},
 	{ ShiftMask, 					XK_Print,          		   spawn, 		   SHCMD("/usr/bin/maim -su | xclip -selection clipboard -t image/png; xclip -out -selection clipboard > ~/Pictures/Screenshots/$(date '+%F-%H-%M-%S').png")},
-
+	{ 0,							XF86XK_MonBrightnessUp,    spawn,		   SHCMD("light -A 5") },
+	{ 0,							XF86XK_MonBrightnessDown,  spawn,		   SHCMD("light -U 5") },
+	
 	{ MODKEY,						XK_w,	   spawn,		   {.v = (const char*[]){ BROWSER, NULL } } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)

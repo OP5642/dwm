@@ -168,6 +168,11 @@ typedef struct {
 	int monitor;
 } Rule;
 
+typedef struct {
+	const char **cmd;
+	unsigned int tags;
+} Autostarttag;
+
 /* function declarations */
 static void applyrules(Client *c);
 static int applysizehints(Client *c, int *x, int *y, int *w, int *h, int interact);

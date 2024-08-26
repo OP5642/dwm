@@ -73,6 +73,19 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
 static const char *termcmd[]  = { "urxvt", NULL };
 
+static const char *termcmd2[] = { "xterm", NULL };
+static const char *browsercmd[] = {"librewolf", NULL};
+static const char *keepassxccmd[] = {"keepassxc", NULL};
+static const char *emacscmd[] = {"emacs", NULL};
+
+Autostarttag autostarttaglist[] = {
+	{.cmd = browsercmd, .tags = 1 << 0 },
+	{.cmd = keepassxccmd, .tags = 1 << 4 },
+	{.cmd = emacscmd, .tags = 1 << 7 },
+	{.cmd = termcmd2, .tags = 1 << 8 },
+	{.cmd = NULL, .tags = 0 },
+};
+
 #include <X11/XF86keysym.h>
 
 static Key keys[] = {

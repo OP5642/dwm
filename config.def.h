@@ -71,15 +71,17 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
-static const char *termcmd[]  = { "urxvt", NULL };
 
-static const char *browsercmd[] = {"librewolf", NULL};
+static const char *termcmd[]  = { "urxvt", NULL };
+static const char *browsercmd[] = {"firefox", NULL};
+static const char *syncthingcmd[] = {"syncthing", NULL};
 static const char *keepassxccmd[] = {"keepassxc", NULL};
 
 Autostarttag autostarttaglist[] = {
-	{.cmd = browsercmd, .tags = 1 << 1 },
-	{.cmd = keepassxccmd, .tags = 1 << 6 },
 	{.cmd = termcmd, .tags = 1 << 0 },
+	{.cmd = browsercmd, .tags = 1 << 1 },
+	{.cmd = syncthingcmd, .tags = 1 << 6 },
+	{.cmd = keepassxccmd, .tags = 1 << 6 },
 	{.cmd = NULL, .tags = 0 },
 };
 

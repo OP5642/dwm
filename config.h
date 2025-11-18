@@ -8,8 +8,8 @@ static unsigned int gappx     		= 10; 	/* gaps between windows */
 static unsigned int snap      		= 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "SauceCodePro Nerd Font:style=Medium:size=17"  };
-static const char dmenufont[]       = "SauceCodePro Nerd Font:style=Medium:size=17";
+static const char *fonts[]          = { "SauceCodePro Nerd Font:style=Medium:size=13"  };
+static const char dmenufont[]       = "SauceCodePro Nerd Font:style=Medium:size=13";
 static const unsigned int baralpha = 0xd0;
 static const unsigned int borderalpha = OPAQUE;
 static char normbgcolor[]           = "#222222";
